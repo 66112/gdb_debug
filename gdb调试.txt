@@ -1,0 +1,36 @@
+gdb调试
+步骤：
+1.先打断点，再run/r让程序跑起来，它会到断点处停下来，然后再执行一系列命令；不然的话，程序就一直跑完了。
+2.命令
+list/l
+（1）gdb  -q  文件名
+（2）show  listsize   //查看一次性显示几行
+（3）set  listsize  num   //修改num
+（4）list  5,10   //显示第5到10行代码
+（5）list  func   //显示func函数周围的代码，多少和listsize有关
+（6）list  test1.c : 5,10  //显示test1.c的5到10行
+breakpoints(断点)
+（1）break/b  行号     //设置断点
+（2）break  7  if n==6   //如果n等于6，就在第7行打断点
+（3）break   函数名    //打到某函数开头
+（4）enable  num1    //启用num1号断点
+（5）disable  num1   //禁用num1号断点
+（6）info  b   //查看断点信息
+（7）delete  num1  num2 ...  //删除num1号断点,num2号断点
+（8）delete   //删除所有断点
+debug
+（1）run/r        //跑到第一个断点处，暂停
+（2）next/n      //单步执行（F10）
+（3）step/s       //单步执行（F11）
+（4）continue/c          //从当前位置开始连续执行，到下一个断点
+（5）print/p  变量或表达式    //打印出值
+（6）display  变量名   //跟踪查看一个变量，每次停下都打印其值
+（7）undisplay  变量名   //取消跟踪
+其他
+（1）ifno/i  locals    //查看当前栈帧局部变量的值
+（2）breaktrace/bt    //查看各级函数调用及参数
+（3）finish       //执行到当前函数返回，然后停下等待命令
+（4）shell  clear    //清理屏幕
+（5）search  str    //从当前行开始，向后找含有 str 的字符串
+（6）reverse-search  str    //从当前行开始，向前找含有 str 的字符串
+（7）until  num   //程序跳到第num行
